@@ -14,7 +14,7 @@ const CardWrapper = () => {
 
   return (
     <div className="w-[1200px] flex justify-center gap-6">
-      {loading && <h2>Loading...</h2>}
+      {loading && <h2 className="text-4xl">Loading...</h2>}
       {coffeData &&
         newProductsArray.map((product) => {
           const productInfo = coffeData.find((item) => item.brand === product);

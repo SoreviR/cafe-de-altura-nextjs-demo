@@ -22,7 +22,7 @@ const ShopSection = () => {
       </h2>
 
       <div className="w-[1200px] flex flex-wrap justify-center gap-6">
-        {loading && <h2>Loading...</h2>}
+        {loading && <h2 className="text-4xl">Loading...</h2>}
         {coffeData &&
           productsArray.map((product, i) => {
             const productInfo = coffeData.find(

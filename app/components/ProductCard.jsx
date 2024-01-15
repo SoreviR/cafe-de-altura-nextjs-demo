@@ -11,10 +11,6 @@ const ProductCard = ({
   let cardAvailable = productAvailable ? "opacity-100" : "opacity-50";
   let buttonDisable = productAvailable ? "" : "disabled";
 
-  const addButton = () => {
-    console.log("Se agrego un producto");
-  };
-
   return (
     <div
       className={`group hover:bg-[#e3ded7] p-6 gap-6 rounded-lg border border-[#e3ded7] flex flex-col items-center ${cardAvailable}`}
@@ -28,10 +24,6 @@ const ProductCard = ({
       </p>
 
       <Button
-        handleAddButton={(e) => {
-          e.preventDefault();
-          addButton();
-        }}
         buttonText="Añadir"
         linkPath=""
         buttonClass={`rounded-[4px] p-2 bg-[#2a5b45b3] text-white group-hover:bg-[#2a5b45]`}
