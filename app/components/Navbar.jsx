@@ -7,7 +7,7 @@ import CartBagIcon from "./CartBagIcon";
 
 const Navbar = () => {
   return (
-    <nav className="text-white flex justify-between px-10 py-3 bg-[#2B2A2B] w-full items-center font-semibold">
+    <nav className="text-white fixed flex justify-between px-10 py-3 bg-[#2B2A2B] w-full items-center font-semibold">
       <CafeDeAlturaLogo />
       <NavigationLinks />
       <div className="flex gap-6">

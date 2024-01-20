@@ -26,6 +26,7 @@ const CardWrapper = () => {
               productImg={productInfo.img_url}
               productBrand={productInfo.brand}
               productPrice={productInfo.price}
+              sendProduct={productInfo}
             />
           );
         })}

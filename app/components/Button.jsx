@@ -1,13 +1,24 @@
-import React from "react";
+"use client";
+
 import Link from "next/link";
 
-const Button = ({ buttonText, linkPath, buttonClass, isDisable }) => {
+const Button = ({
+  buttonText,
+  linkPath,
+  buttonClass,
+  isDisable,
+  productSend,
+  addProduct,
+}) => {
   return (
     <Link href={linkPath} className={buttonClass}>
       <button
         type="button"
         disabled={isDisable}
-        onClick={""}
+        onClick={(e) => {
+          e.preventDefault();
+          addProduct(productSend);
+        }}
         className="text-sm font-semibold"
       >
         {buttonText}

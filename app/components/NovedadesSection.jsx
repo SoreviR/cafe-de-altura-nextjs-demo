@@ -16,7 +16,7 @@ const NovedadesSection = () => {
         className="button-store flex gap-4 items-center text-sm font-semibold leading-4 underline"
       >
         Ver todos
-        <Image src={arrowIcon} alt="arrow" />
+        <Image src={arrowIcon} alt="arrow" width={"auto"} height={"auto"} />
       </Link>
     </div>
   );

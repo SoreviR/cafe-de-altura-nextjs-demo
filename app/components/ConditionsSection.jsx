@@ -3,7 +3,6 @@ import clipboardIcon from "../../public/icons/Clipboard check.svg";
 import truckIcon from "../../public/icons/Truck.svg";
 import giftIcon from "../../public/icons/Gift.svg";
 import ConditionCard from "./ConditionCard";
-import Image from "next/image";
 
 const ConditionsSection = () => {
   const conditionsInfo = [
@@ -27,7 +26,7 @@ const ConditionsSection = () => {
   ];
 
   return (
-    <div className="px-[147px] py-12 gap-6 flex flex-col bg-no-repeat bg-center bg-cover w-full items-center h-[380px] bg-backgroundCoffee">
+    <div className="px-[147px] py-12 gap-6 flex flex-col bg-no-repeat bg-center bg-cover w-full items-center h-[380px] bg-[url('../public/images/condition-cards-background.jpg')]">
       <h2 className="text-2xl text-center font-medium text-white">
         Café con las mejores condiciones
       </h2>

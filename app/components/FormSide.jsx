@@ -31,7 +31,7 @@ const FormSide = () => {
           <div className="phone-information flex px-[9px] py-[13px] border rounded-md">
             <select className="outline-none" id="country" name="country">
               <option>ES</option>
-              <option selected>US</option>
+              <option defaultValue={"US"}>US</option>
             </select>
 
             <input

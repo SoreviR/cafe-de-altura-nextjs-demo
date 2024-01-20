@@ -4,15 +4,10 @@ import React from "react";
 import ShopSection from "../components/ShopSection";
 import ConditionsSection from "../components/ConditionsSection";
 import Footer from "../components/Footer";
+import ShopPage from "../components/ShopPage";
 
 const page = () => {
-  return (
-    <div className="flex flex-col items-center">
-      <ShopSection />
-      <ConditionsSection />
-      <Footer />
-    </div>
-  );
+  return <ShopPage />;
 };
 
 export default page;
