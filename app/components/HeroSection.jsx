@@ -2,10 +2,11 @@ import React from "react";
 import heroImgSrc from "../../public/images/Hero image.png";
 import Button from "./Button";
 import Image from "next/image";
+import ButtonCVA from "./ButtonCva";
 
 const HeroSection = () => {
   return (
-    <section className="flex justify-center gap-6 h-[486px] p-12">
+    <section className="flex justify-center gap-6 h-[486px] py-12 px-10">
       <article className="flex flex-col justify-center gap-4 w-[588px]">
         <h3 className="text-[#2A5B45] text-lg font-semibold">
           De la planta a tu taza
@@ -19,17 +20,17 @@ const HeroSection = () => {
           hogar.
         </p>
         <div className="flex gap-4">
-          <Button
-            buttonText={"Descrubrir orígenes"}
+          <ButtonCVA
+            intent={"blackButton"}
+            size={"medium"}
             linkPath={"/origenes"}
-            buttonClass={"bg-black text-white rounded py-3 px-6"}
-          />
+          >
+            Descrubrir orígenes
+          </ButtonCVA>
 
-          <Button
-            buttonText={"Comprar café"}
-            linkPath={"/shop"}
-            buttonClass={"bg-[#2A5B45] text-white rounded py-3 px-6"}
-          />
+          <ButtonCVA intent={"greenButton"} size={"medium"} linkPath={"/shop"}>
+            Comprar café
+          </ButtonCVA>
         </div>
       </article>
       <Image

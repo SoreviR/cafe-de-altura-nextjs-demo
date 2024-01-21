@@ -12,6 +12,7 @@ import Footer from "./Footer";
 const HomePage = () => {
   return (
     <div className="flex flex-col items-center">
+      <div className="h-16"></div>
       <HeroSection />
       <ConditionsSection />
       <NovedadesSection />

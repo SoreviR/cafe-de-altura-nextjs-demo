@@ -21,11 +21,20 @@ const CartModal = ({ cartInfo, clearButton }) => {
         <div className="flex flex-col gap-5 text-sm w-full">
           <CartModalRow />
           <div className="flex justify-between items-center">
-            <button onClick={() => clearButton()}>Limpiar</button>
+            {/* <button onClick={() => clearButton()}>Limpiar</button> */}
 
-            {/* <ButtonCVA>Limpiar</ButtonCVA> */}
+            <ButtonCVA
+              typeFunction={() => clearButton()}
+              functionOn={true}
+              intent={"greyButton"}
+            >
+              Limpiar
+            </ButtonCVA>
 
-            <button>Cesta</button>
+            <ButtonCVA intent={"greenButton"} linkPath={"/cart"}>
+              Cesta
+            </ButtonCVA>
+
             <p className="border rounded p-2">Total: {precioTotal} €</p>
           </div>
         </div>

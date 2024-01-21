@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
-import Button from "./Button";
 import Image from "next/image";
 import { DataContext } from "../context/DataContext";
+import ButtonCVA from "./ButtonCva";
 
 const ProductCard = ({
   productImg,
@@ -11,7 +11,7 @@ const ProductCard = ({
   sendProduct,
 }) => {
   let cardAvailable = productAvailable ? "opacity-100" : "opacity-50";
-  let buttonDisable = productAvailable ? "" : "disabled";
+  let buttonDisable = productAvailable ? "avaliable" : "disabled";
 
   const { addProduct } = useContext(DataContext);
 
@@ -27,14 +27,16 @@ const ProductCard = ({
         {productPrice.toFixed(2)} €
       </p>
 
-      <Button
-        buttonText="Añadir"
-        linkPath=""
-        buttonClass={`rounded-[4px] p-2 bg-[#2a5b45b3] text-white group-hover:bg-[#2a5b45]`}
+      <ButtonCVA
+        intent={"addButton"}
+        size={"small"}
         isDisable={buttonDisable}
-        productSend={sendProduct}
-        addProduct={() => addProduct(sendProduct)}
-      />
+        functionOn={true}
+        typeFunction={() => addProduct(sendProduct)}
+        functionParam={sendProduct}
+      >
+        Añadir
+      </ButtonCVA>
     </div>
   );
 };

@@ -6,8 +6,6 @@ const cartReducer = (cartState, dispatch) => {
       );
 
       if (cartProductIndex >= 0) {
-        // dispatch.product.quantity = 1;
-
         const newCartState = structuredClone(cartState);
         newCartState[cartProductIndex].quantity += 1;
         return newCartState;
@@ -21,8 +19,18 @@ const cartReducer = (cartState, dispatch) => {
         },
       ];
 
-    case "delete_product":
-      return cartState.filter((item) => item.id !== dispatch.product);
+    case "remove_product":
+      const cartProductIndexRemove = cartState.findIndex(
+        (product) => product.brand === dispatch.product.brand
+      );
+
+      const newCartStateRemove = structuredClone(cartState);
+      newCartStateRemove[cartProductIndexRemove].quantity -= 1;
+
+      if (newCartStateRemove[cartProductIndexRemove].quantity == 0) {
+        newCartStateRemove.splice(cartProductIndexRemove, 1);
+      }
+      return newCartStateRemove;
 
     case "clear_cart":
       return [];

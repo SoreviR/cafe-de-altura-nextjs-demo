@@ -30,6 +30,14 @@ export default function DataContextProvider({ children }) {
     console.log("Se apreto el boton ADD");
   };
 
+  const removeProduct = (product) => {
+    dispatch({
+      action: "remove_product",
+      product: product,
+    });
+    console.log("Se apreto el boton Remove");
+  };
+
   const clearCart = () => {
     dispatch({
       action: "clear_cart",
@@ -47,6 +55,7 @@ export default function DataContextProvider({ children }) {
         loading,
         dispatch,
         addProduct,
+        removeProduct,
         clearCart,
         cartState,
         modalCartBool,

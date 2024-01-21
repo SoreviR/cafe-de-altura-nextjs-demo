@@ -4,19 +4,19 @@ import NavigationLinks from "./NavigationLinks";
 import PhoneNumber from "./PhoneNumber";
 import Button from "./Button";
 import CartBagIcon from "./CartBagIcon";
+import ButtonCVA from "./ButtonCva";
 
 const Navbar = () => {
   return (
-    <nav className="text-white fixed flex justify-between px-10 py-3 bg-[#2B2A2B] w-full items-center font-semibold">
+    <nav className="text-white fixed flex z-10 justify-between px-10 py-3 bg-[#2B2A2B] w-full items-center font-semibold">
       <CafeDeAlturaLogo />
       <NavigationLinks />
       <div className="flex gap-6">
         <PhoneNumber />
-        <Button
-          buttonText={"Iniciar sesión"}
-          linkPath={"/login"}
-          buttonClass={"bg-[#515051] rounded text-sm font-semibold py-3 px-6"}
-        />
+
+        <ButtonCVA intent={"greyButton"} size={"medium"} linkPath={"/"}>
+          Iniciar sesión
+        </ButtonCVA>
       </div>
 
       <CartBagIcon />

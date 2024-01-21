@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import ButtonCVA from "./ButtonCva";
 
 const FormSide = () => {
   return (
@@ -65,9 +66,9 @@ const FormSide = () => {
           </p>
         </div>
         <div className="">
-          <button className="bg-[#2A5B45] rounded px-6 py-3 text-white text-sm font-semibold leading-4">
+          <ButtonCVA intent={"greenButton"} size={"medium"} linkPath={"/"}>
             Enviar
-          </button>
+          </ButtonCVA>
         </div>
       </form>
     </aside>

@@ -5,21 +5,24 @@ import Button from "./Button";
 import ButtonCVA from "./ButtonCva";
 
 const CartModalRow = () => {
-  const { addProduct, cartState } = useContext(DataContext);
+  const { addProduct, removeProduct, cartState } = useContext(DataContext);
 
   return (
-    <div className="flex flex-col gap-4 boder-white border p-2 rounded">
+    <div className="flex flex-col gap-4 boder-white border p-2 text rounded">
       {cartState.map((product, i) => {
-        console.log(product);
         return (
           <div key={i} className="flex justify-between items-center">
-            <div className="flex justify-between items-center gap-4">
-              <Button
-                buttonText={"+"}
-                linkPath=""
-                productSend={product}
-                addProduct={() => addProduct(product)}
-              />
+            <div className="flex justify-between items-center gap-2">
+              <ButtonCVA
+                intent={"cartButton"}
+                size={"superSmall"}
+                roundness={"pill"}
+                functionOn={true}
+                typeFunction={() => addProduct(product)}
+                functionParam={product}
+              >
+                +
+              </ButtonCVA>
 
               <Image
                 src={product.img_url}
@@ -27,7 +30,17 @@ const CartModalRow = () => {
                 height={50}
                 alt="product"
               />
-              <button>-</button>
+
+              <ButtonCVA
+                intent={"cartButton"}
+                size={"superSmall"}
+                roundness={"pill"}
+                functionOn={true}
+                typeFunction={() => removeProduct(product)}
+                functionParam={product}
+              >
+                -
+              </ButtonCVA>
             </div>
 
             <p>{product.brand}</p>

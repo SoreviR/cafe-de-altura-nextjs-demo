@@ -2,7 +2,6 @@
 
 import React, { useContext } from "react";
 import bagIcon from "../../public/icons/cart-bag-icon.png";
-import Link from "next/link";
 import Image from "next/image";
 import { DataContext } from "../context/DataContext";
 import CartModal from "./CartModal";

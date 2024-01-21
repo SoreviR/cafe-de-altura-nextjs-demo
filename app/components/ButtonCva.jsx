@@ -1,52 +1,81 @@
 import React from "react";
 import { cva } from "class-variance-authority";
+import Link from "next/link";
 //class-variance-authority: library
 
 const ButtonCva = cva(
   /* button base style */
-  "h-auto text-white uppercase transition-colors duration-150",
+  "text-white rounded text-sm font-semibold transition-colors duration-150",
   {
     variants: {
       /* button colors */
       intent: {
-        primary: "bg-green-500 hover:bg-green-600",
-        secondary: "bg-red-500 hover:bg-red-600",
-        default: "bg-gray-500 hover:bg-gray-600",
+        cartButton: "bg-slate-400",
+        addButton: "bg-[#2a5b45b3] group-hover:bg-[#2a5b45] ",
+        greyButton: "bg-[#515051]",
+        greenButton: "bg-[#2A5B45]",
+        blackButton: "bg-black",
       },
 
       /* button sizes */
       size: {
-        small: ["text-sm", "py-1", "px-2"],
-        medium: ["text-base", "py-2", "px-4"],
+        superSmall: "text-lg px-2 py-1",
+        small: "p-2",
+        medium: "px-6 py-3",
         large: ["text-lg", "py-4", "px-8"],
       },
 
       /* button roundness */
       roundness: {
-        square: "rounded-none",
-        round: "rounded-md",
+        round: "rounded",
         pill: "rounded-full",
       },
 
-      //function type
+      isDisable: {
+        disabled: "disabled",
+        avaliable: "",
+      },
     },
 
     // defaults
     defaultVariants: {
-      intent: "default",
+      intent: "greenButton",
       size: "medium",
       roundness: "round",
     },
   }
 );
 
-export default function ButtonCVA({ intent, size, roundness, children }) {
-  console.log(ButtonCva({ intent, size, roundness }));
+export default function ButtonCVA({
+  intent,
+  size,
+  isDisable,
+  roundness,
+  children,
+  typeFunction,
+  functionParam,
+  functionOn,
+  linkPath,
+}) {
+  //   console.log(ButtonCva({ intent, size, roundness }));
 
   return (
-    <button className={ButtonCva({ intent, size, roundness })}>
-      {children}
-    </button>
+    <div>
+      {functionOn ? (
+        <button
+          onClick={() => typeFunction(functionParam)}
+          className={ButtonCva({ intent, size, roundness, isDisable })}
+        >
+          {children}
+        </button>
+      ) : (
+        <Link href={linkPath}>
+          <button className={ButtonCva({ intent, size, roundness })}>
+            {children}
+          </button>
+        </Link>
+      )}
+    </div>
   );
 }
 
