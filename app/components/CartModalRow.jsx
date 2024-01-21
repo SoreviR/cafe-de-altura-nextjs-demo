@@ -1,20 +1,40 @@
 import Image from "next/image";
+import { useContext } from "react";
+import { DataContext } from "../context/DataContext";
+import Button from "./Button";
+import ButtonCVA from "./ButtonCva";
 
-const CartModalRow = ({ cartProducts }) => {
+const CartModalRow = () => {
+  const { addProduct, cartState } = useContext(DataContext);
+
   return (
-    <div className="flex flex-col gap-2 boder-white border p-2 rounded">
-      {cartProducts.map((product, i) => {
+    <div className="flex flex-col gap-4 boder-white border p-2 rounded">
+      {cartState.map((product, i) => {
+        console.log(product);
         return (
-          <div key={i} className="flex justify-between">
-            <div className="flex justify-between gap-4">
-              <button>+</button>
-              <div>IMG</div>
-              {/* <Image src={product.img_url} alt="product" /> */}
+          <div key={i} className="flex justify-between items-center">
+            <div className="flex justify-between items-center gap-4">
+              <Button
+                buttonText={"+"}
+                linkPath=""
+                productSend={product}
+                addProduct={() => addProduct(product)}
+              />
+
+              <Image
+                src={product.img_url}
+                width={50}
+                height={50}
+                alt="product"
+              />
               <button>-</button>
             </div>
 
             <p>{product.brand}</p>
-            <p>{product.price.toFixed(2)} €</p>
+            <div className="flex gap-3">
+              <p>x{product.quantity}</p>
+              <p>{product.price} €</p>
+            </div>
           </div>
         );
       })}

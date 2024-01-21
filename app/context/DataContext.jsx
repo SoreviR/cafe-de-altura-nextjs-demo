@@ -1,5 +1,5 @@
 "use client";
-import cartReducer from "@/utils/cartReducer";
+import cartReducer from "@/utils/CartReducer";
 import React, { createContext, useEffect, useReducer, useState } from "react";
 
 export const DataContext = createContext([]);
@@ -7,7 +7,7 @@ export const DataContext = createContext([]);
 export default function DataContextProvider({ children }) {
   const [coffeData, setCoffeData] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [modalCart, setModalCart] = useState(false);
+  const [modalCartBool, setModalCartBool] = useState(false);
 
   useEffect(() => {
     setLoading(true);
@@ -22,13 +22,20 @@ export default function DataContextProvider({ children }) {
     setLoading(false);
   }, []);
 
-  // console.log(coffeData);
   const addProduct = (product) => {
     dispatch({
       action: "add_product",
       product: product,
     });
     console.log("Se apreto el boton ADD");
+  };
+
+  const clearCart = () => {
+    dispatch({
+      action: "clear_cart",
+      // product: product,
+    });
+    console.log("Se apreto el boton Clear");
   };
 
   const [cartState, dispatch] = useReducer(cartReducer, []);
@@ -40,9 +47,10 @@ export default function DataContextProvider({ children }) {
         loading,
         dispatch,
         addProduct,
+        clearCart,
         cartState,
-        modalCart,
-        setModalCart,
+        modalCartBool,
+        setModalCartBool,
       }}
     >
       {children}

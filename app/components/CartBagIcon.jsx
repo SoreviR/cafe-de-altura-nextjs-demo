@@ -8,10 +8,11 @@ import { DataContext } from "../context/DataContext";
 import CartModal from "./CartModal";
 
 const CartBagIcon = () => {
-  const { modalCart, setModalCart, cartState } = useContext(DataContext);
+  const { modalCartBool, setModalCartBool, cartState, clearCart } =
+    useContext(DataContext);
 
   const handleModal = () => {
-    setModalCart(!modalCart);
+    setModalCartBool(!modalCartBool);
   };
 
   return (
@@ -21,10 +22,10 @@ const CartBagIcon = () => {
       </button>
       <p
         className={`cart-count text-xs font-normal leading-4 px-2 py-1 bg-[#3f3e3f] rounded-full hidden`}
-      >
-        {/* {cartProducts.length} */}
-      </p>
-      {modalCart && <CartModal cartInfo={cartState} />}
+      ></p>
+      {modalCartBool && (
+        <CartModal cartInfo={cartState} clearButton={() => clearCart()} />
+      )}
     </figure>
   );
 };
