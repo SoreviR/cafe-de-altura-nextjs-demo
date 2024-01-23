@@ -11,43 +11,45 @@ const CartModalRow = () => {
     <div className="flex flex-col gap-4 boder-white border p-2 text rounded">
       {cartState.map((product, i) => {
         return (
-          <div key={i} className="flex justify-between items-center">
-            <div className="flex justify-between items-center gap-2">
-              <ButtonCVA
-                intent={"cartButton"}
-                size={"superSmall"}
-                roundness={"pill"}
-                functionOn={true}
-                typeFunction={() => addProduct(product)}
-                functionParam={product}
-              >
-                +
-              </ButtonCVA>
+          <div key={i} className="flex flex-col gap-1">
+            <div className="flex justify-between items-center">
+              <div className="flex justify-between items-center gap-2">
+                <ButtonCVA
+                  intent={"cartBagButton"}
+                  size={"superSmall"}
+                  roundness={"pill"}
+                  isFunction={true}
+                  typeFunction={() => removeProduct(product)}
+                  functionParam={product}
+                >
+                  -
+                </ButtonCVA>
 
-              <Image
-                src={product.img_url}
-                width={50}
-                height={50}
-                alt="product"
-              />
+                <Image
+                  src={product.img_url}
+                  width={50}
+                  height={50}
+                  alt="product"
+                />
+                <ButtonCVA
+                  intent={"cartBagButton"}
+                  size={"superSmall"}
+                  roundness={"pill"}
+                  isFunction={true}
+                  typeFunction={() => addProduct(product)}
+                  functionParam={product}
+                >
+                  +
+                </ButtonCVA>
+              </div>
 
-              <ButtonCVA
-                intent={"cartButton"}
-                size={"superSmall"}
-                roundness={"pill"}
-                functionOn={true}
-                typeFunction={() => removeProduct(product)}
-                functionParam={product}
-              >
-                -
-              </ButtonCVA>
+              <p>{product.brand}</p>
+              <div className="flex gap-3">
+                <p>x{product.quantity}</p>
+                <p>{product.price} €</p>
+              </div>
             </div>
-
-            <p>{product.brand}</p>
-            <div className="flex gap-3">
-              <p>x{product.quantity}</p>
-              <p>{product.price} €</p>
-            </div>
+            <div className="w-auto h-[1px] bg-white"></div>
           </div>
         );
       })}

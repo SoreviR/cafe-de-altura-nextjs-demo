@@ -8,6 +8,7 @@ export default function DataContextProvider({ children }) {
   const [coffeData, setCoffeData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [modalCartBool, setModalCartBool] = useState(false);
+  const [isChecked, setIsChecked] = useState(true);
 
   useEffect(() => {
     setLoading(true);
@@ -60,6 +61,8 @@ export default function DataContextProvider({ children }) {
         cartState,
         modalCartBool,
         setModalCartBool,
+        isChecked,
+        setIsChecked,
       }}
     >
       {children}

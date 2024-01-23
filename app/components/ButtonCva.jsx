@@ -5,16 +5,18 @@ import Link from "next/link";
 
 const ButtonCva = cva(
   /* button base style */
-  "text-white rounded text-sm font-semibold transition-colors duration-150",
+  "rounded text-sm font-semibold transition-colors duration-150",
   {
     variants: {
       /* button colors */
       intent: {
-        cartButton: "bg-slate-400",
+        cartButton: "",
+        cartBagButton: "bg-slate-300 text-black",
         addButton: "bg-[#2a5b45b3] group-hover:bg-[#2a5b45] ",
         greyButton: "bg-[#515051]",
-        greenButton: "bg-[#2A5B45]",
+        greenButton: "bg-[#2A5B45] text-white",
         blackButton: "bg-black",
+        toupeButton: "bg-[#E3DED7]",
       },
 
       /* button sizes */
@@ -35,6 +37,10 @@ const ButtonCva = cva(
         disabled: "disabled",
         avaliable: "",
       },
+
+      textColor: {
+        green: "text-[#2A5B45]",
+      },
     },
 
     // defaults
@@ -50,27 +56,34 @@ export default function ButtonCVA({
   intent,
   size,
   isDisable,
+  textColor,
   roundness,
   children,
   typeFunction,
   functionParam,
-  functionOn,
+  isFunction,
   linkPath,
 }) {
   //   console.log(ButtonCva({ intent, size, roundness }));
 
   return (
     <div>
-      {functionOn ? (
+      {isFunction ? (
         <button
           onClick={() => typeFunction(functionParam)}
-          className={ButtonCva({ intent, size, roundness, isDisable })}
+          className={ButtonCva({
+            intent,
+            size,
+            roundness,
+            isDisable,
+            textColor,
+          })}
         >
           {children}
         </button>
       ) : (
         <Link href={linkPath}>
-          <button className={ButtonCva({ intent, size, roundness })}>
+          <button className={ButtonCva({ intent, size, roundness, textColor })}>
             {children}
           </button>
         </Link>

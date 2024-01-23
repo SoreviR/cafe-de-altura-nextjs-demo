@@ -31,7 +31,7 @@ const ProductCard = ({
         intent={"addButton"}
         size={"small"}
         isDisable={buttonDisable}
-        functionOn={true}
+        isFunction={true}
         typeFunction={() => addProduct(sendProduct)}
         functionParam={sendProduct}
       >

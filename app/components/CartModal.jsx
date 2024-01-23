@@ -25,7 +25,7 @@ const CartModal = ({ cartInfo, clearButton }) => {
 
             <ButtonCVA
               typeFunction={() => clearButton()}
-              functionOn={true}
+              isFunction={true}
               intent={"greyButton"}
             >
               Limpiar
