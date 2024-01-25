@@ -12,10 +12,10 @@ const ButtonCva = cva(
       intent: {
         cartButton: "",
         cartBagButton: "bg-slate-300 text-black",
-        addButton: "bg-[#2a5b45b3] group-hover:bg-[#2a5b45] ",
+        addButton: "bg-[#2a5b45b3] group-hover:bg-[#2a5b45] text-white",
         greyButton: "bg-[#515051]",
         greenButton: "bg-[#2A5B45] text-white",
-        blackButton: "bg-black",
+        blackButton: "bg-black text-white",
         toupeButton: "bg-[#E3DED7]",
       },
 
