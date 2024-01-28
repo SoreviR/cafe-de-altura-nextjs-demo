@@ -33,8 +33,9 @@ const ButtonCva = cva(
         pill: "rounded-full",
       },
 
-      isDisable: {
-        disabled: "disabled",
+      cursor: {
+        disabled: "cursor-not-allowed bg-[#b9c7bf]",
+
         avaliable: "",
       },
 
@@ -63,6 +64,7 @@ export default function ButtonCVA({
   functionParam,
   isFunction,
   linkPath,
+  cursor,
 }) {
   //   console.log(ButtonCva({ intent, size, roundness }));
 
@@ -70,6 +72,7 @@ export default function ButtonCVA({
     <div>
       {isFunction ? (
         <button
+          disabled={isDisable}
           onClick={() => typeFunction(functionParam)}
           className={ButtonCva({
             intent,
@@ -77,13 +80,24 @@ export default function ButtonCVA({
             roundness,
             isDisable,
             textColor,
+            cursor,
           })}
         >
           {children}
         </button>
       ) : (
         <Link href={linkPath}>
-          <button className={ButtonCva({ intent, size, roundness, textColor })}>
+          <button
+            disabled={isDisable}
+            className={ButtonCva({
+              intent,
+              size,
+              roundness,
+              textColor,
+              isDisable,
+              cursor,
+            })}
+          >
             {children}
           </button>
         </Link>

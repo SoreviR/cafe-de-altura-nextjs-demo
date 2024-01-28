@@ -30,7 +30,7 @@ const ConditionsSection = () => {
       <h2 className="text-2xl text-center font-medium text-white">
         Café con las mejores condiciones
       </h2>
-      <div className="flex justify-center text-center text-Dark-grey-color gap-6  w-[996px] h-[232px]">
+      <div className="flex justify-center text-center text-[#2b2a2b] gap-6  w-[996px] h-[232px]">
         {conditionsInfo.map((condition, i) => {
           return (
             <ConditionCard

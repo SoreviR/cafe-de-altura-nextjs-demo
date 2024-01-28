@@ -4,10 +4,8 @@ import { DataContext } from "../context/DataContext";
 import CartProductsSection from "./CartProductsSection";
 
 const CartPage = () => {
-  const { setModalCartBool, cartState } = useContext(DataContext);
-
-  let bagTotalProducts = 0;
-  cartState.forEach((product) => (bagTotalProducts += product.quantity));
+  const { setModalCartBool, cartState, bagTotalProducts } =
+    useContext(DataContext);
 
   useEffect(() => {
     setModalCartBool(false);

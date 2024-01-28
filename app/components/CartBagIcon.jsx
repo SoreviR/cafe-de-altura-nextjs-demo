@@ -7,8 +7,13 @@ import { DataContext } from "../context/DataContext";
 import CartModal from "./CartModal";
 
 const CartBagIcon = () => {
-  const { modalCartBool, setModalCartBool, cartState, clearCart } =
-    useContext(DataContext);
+  const {
+    modalCartBool,
+    setModalCartBool,
+    cartState,
+    clearCart,
+    bagTotalProducts,
+  } = useContext(DataContext);
 
   const handleModal = () => {
     setModalCartBool(!modalCartBool);
@@ -20,10 +25,19 @@ const CartBagIcon = () => {
         <Image src={bagIcon} alt="cart icon" />
       </button>
       <p
-        className={`cart-count text-xs font-normal leading-4 px-2 py-1 bg-[#3f3e3f] rounded-full hidden`}
-      ></p>
+        className={`cart-count text-xs font-normal leading-4 px-2 py-1 bg-[#3f3e3f] rounded-full ${
+          cartState.length > 0 ? "" : "hidden"
+        }`}
+      >
+        {bagTotalProducts}
+      </p>
       {modalCartBool && (
-        <CartModal cartInfo={cartState} clearButton={() => clearCart()} />
+        <CartModal
+          modalState={modalCartBool}
+          setModalState={setModalCartBool}
+          cartInfo={cartState}
+          clearButton={() => clearCart()}
+        />
       )}
     </figure>
   );

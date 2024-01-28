@@ -28,7 +28,6 @@ export default function DataContextProvider({ children }) {
       action: "add_product",
       product: product,
     });
-    console.log("Se apreto el boton ADD");
   };
 
   const removeProduct = (product) => {
@@ -42,12 +41,15 @@ export default function DataContextProvider({ children }) {
   const clearCart = () => {
     dispatch({
       action: "clear_cart",
-      // product: product,
     });
     console.log("Se apreto el boton Clear");
   };
 
   const [cartState, dispatch] = useReducer(cartReducer, []);
+
+  const bagTotalProducts = cartState.reduce((acc, curr) => {
+    return acc + curr.quantity;
+  }, 0);
 
   return (
     <DataContext.Provider
@@ -63,6 +65,7 @@ export default function DataContextProvider({ children }) {
         setModalCartBool,
         isChecked,
         setIsChecked,
+        bagTotalProducts,
       }}
     >
       {children}

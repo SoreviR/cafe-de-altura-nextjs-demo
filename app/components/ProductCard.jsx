@@ -11,7 +11,7 @@ const ProductCard = ({
   sendProduct,
 }) => {
   let cardAvailable = productAvailable ? "opacity-100" : "opacity-50";
-  let buttonDisable = productAvailable ? "avaliable" : "disabled";
+  let buttonDisable = productAvailable ? true : false;
 
   const { addProduct } = useContext(DataContext);
 
@@ -30,10 +30,11 @@ const ProductCard = ({
       <ButtonCVA
         intent={"addButton"}
         size={"small"}
-        isDisable={buttonDisable}
+        isDisable={!buttonDisable}
         isFunction={true}
         typeFunction={() => addProduct(sendProduct)}
         functionParam={sendProduct}
+        cursor={buttonDisable ? "" : "disabled"}
       >
         Añadir
       </ButtonCVA>

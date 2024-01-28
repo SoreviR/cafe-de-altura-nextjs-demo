@@ -8,6 +8,10 @@
 .phone-information:hover {
   border: 1px solid #9b9ea3;
 }
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
 /* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
