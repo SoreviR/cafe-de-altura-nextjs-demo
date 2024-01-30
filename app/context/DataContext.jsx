@@ -1,5 +1,5 @@
 "use client";
-import cartReducer from "@/utils/CartReducer";
+import cartReducer from "@/utils/CartReducer.jsx";
 // import cartReducer from "@/utils/CartReducer";
 // import cartReducer from "../../utils/CartReducer";
 import React, { createContext, useEffect, useReducer, useState } from "react";
