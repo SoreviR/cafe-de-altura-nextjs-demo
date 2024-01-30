@@ -12,10 +12,11 @@ import Footer from "./Footer";
 import { DataContext } from "../context/DataContext";
 
 const HomePage = () => {
-  const { setModalCartBool } = useContext(DataContext);
+  const { setModalCartBool, setIsSuccessPage } = useContext(DataContext);
 
   useEffect(() => {
     setModalCartBool(false);
+    setIsSuccessPage(false);
   }, []);
 
   return (

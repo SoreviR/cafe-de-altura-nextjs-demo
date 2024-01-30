@@ -4,11 +4,12 @@ import { DataContext } from "../context/DataContext";
 import CartProductsSection from "./CartProductsSection";
 
 const CartPage = () => {
-  const { setModalCartBool, cartState, bagTotalProducts } =
+  const { setModalCartBool, setIsSuccessPage, bagTotalProducts } =
     useContext(DataContext);
 
   useEffect(() => {
     setModalCartBool(false);
+    setIsSuccessPage(false);
   }, []);
 
   return (

@@ -13,7 +13,10 @@ const CartBagIcon = () => {
     cartState,
     clearCart,
     bagTotalProducts,
+    isSuccessPage,
   } = useContext(DataContext);
+
+  let bagQuantity = cartState.length;
 
   const handleModal = () => {
     setModalCartBool(!modalCartBool);
@@ -21,12 +24,17 @@ const CartBagIcon = () => {
 
   return (
     <figure className="flex gap-2 relative">
-      <button onClick={handleModal} className="cart-bag-icon">
+      <button
+        onClick={handleModal}
+        disabled={isSuccessPage}
+        className="cart-bag-icon"
+      >
         <Image src={bagIcon} alt="cart icon" />
       </button>
+
       <p
         className={`cart-count text-xs font-normal leading-4 px-2 py-1 bg-[#3f3e3f] rounded-full ${
-          cartState.length > 0 ? "" : "hidden"
+          bagQuantity > 0 && !isSuccessPage ? "" : "hidden"
         }`}
       >
         {bagTotalProducts}

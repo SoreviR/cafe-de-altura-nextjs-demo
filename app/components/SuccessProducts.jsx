@@ -6,15 +6,9 @@ const SuccessProducts = () => {
   const { cartState, clearCart } = useContext(DataContext);
   const [successData, setSuccessData] = useState(null);
 
-  //   useEffect(() => {
-  //     setSuccessData(cartState);
-  //     clearCart();
-  //   }, []);
-
-  console.log(successData);
   return (
     <div className="flex flex-col gap-6 p-6">
-      <h3 class="text-lg font-semibold leading-6">Tu pedido</h3>
+      <h3 className="text-lg font-semibold leading-6">Tu pedido</h3>
       {cartState.map((product, i) => {
         return (
           <div key={i} className="flex justify-between">

@@ -2,7 +2,6 @@ import React from "react";
 import CafeDeAlturaLogo from "./CafeDeAlturaLogo";
 import NavigationLinks from "./NavigationLinks";
 import PhoneNumber from "./PhoneNumber";
-import Button from "./Button";
 import CartBagIcon from "./CartBagIcon";
 import ButtonCVA from "./ButtonCva";
 

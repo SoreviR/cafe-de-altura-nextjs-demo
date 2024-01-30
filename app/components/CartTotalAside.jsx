@@ -4,7 +4,7 @@ import Image from "next/image";
 import { DataContext } from "../context/DataContext";
 import ButtonCVA from "./ButtonCva";
 
-const CartTotalAside = ({ isPage, isValidated }) => {
+const CartTotalAside = ({ isPage, validated }) => {
   const { isChecked, cartState } = useContext(DataContext);
 
   let cartSubtotal = 0;
@@ -13,8 +13,9 @@ const CartTotalAside = ({ isPage, isValidated }) => {
       return acc + curr.price * curr.quantity;
     }, 0);
   }
+  const totalTax = cartSubtotal * 0.21;
 
-  const deliverySelected = isChecked ? "GRATIS" : "9,00 €";
+  const deliverySelected = isChecked ? "GRATIS" : "9.00 €";
 
   return (
     <div className="flex flex-col gap-4 ">
@@ -50,9 +51,11 @@ const CartTotalAside = ({ isPage, isValidated }) => {
         <p className="text-sm font-semibold leading-4">TOTAL</p>
         <div className="flex flex-col gap-2">
           <p className="total-product-price text-sm font-semibold leading-4 self-end">
-            {cartSubtotal + (isChecked ? 0 : 9) + ",00 €"}
+            {(totalTax + cartSubtotal + (isChecked ? 0 : 9)).toFixed(2) + " €"}
           </p>
-          <p className="text-xs font-normal leading-4">Incluye 3,78€ de IVA</p>
+          <p className="text-xs font-normal leading-4">
+            Incluye {totalTax.toFixed(2)}€ de IVA
+          </p>
         </div>
       </div>
       {isPage === "checkout" ? (
@@ -61,8 +64,8 @@ const CartTotalAside = ({ isPage, isValidated }) => {
           size={"medium"}
           textColor={"white"}
           linkPath={"/success"}
-          isDisable={isValidated}
-          cursor={isValidated ? "disabled" : ""}
+          isDisable={validated}
+          cursor={validated ? "disabled" : ""}
         >
           Pagar y realizar pedido
         </ButtonCVA>

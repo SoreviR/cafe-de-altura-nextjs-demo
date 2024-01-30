@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { useContext } from "react";
 import { DataContext } from "../context/DataContext";
-import Button from "./Button";
 import ButtonCVA from "./ButtonCva";
 
 const CartModalRow = () => {
@@ -12,7 +11,7 @@ const CartModalRow = () => {
       {cartState.map((product, i) => {
         return (
           <div key={i} className="flex flex-col gap-1">
-            <div className="flex justify-between items-center">
+            <div className="flex justify-between items-center gap-2">
               <div className="flex justify-between items-center gap-2">
                 <ButtonCVA
                   intent={"cartBagButton"}
@@ -46,7 +45,7 @@ const CartModalRow = () => {
               <p>{product.brand}</p>
               <div className="flex gap-3">
                 <p>x{product.quantity}</p>
-                <p>{product.price} €</p>
+                <p>{product.price.toFixed(2)} €</p>
               </div>
             </div>
             <div className="w-auto h-[1px] bg-white"></div>

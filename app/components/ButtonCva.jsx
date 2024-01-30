@@ -66,8 +66,6 @@ export default function ButtonCVA({
   linkPath,
   cursor,
 }) {
-  //   console.log(ButtonCva({ intent, size, roundness }));
-
   return (
     <div>
       {isFunction ? (

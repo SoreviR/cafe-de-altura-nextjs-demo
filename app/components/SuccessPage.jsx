@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import clipboardIcon from "../../public/icons/Clipboard check.svg";
 import ConditionIcon from "./ConditionIcon";
 import SuccessProducts from "./SuccessProducts";
 import CartTotalAside from "./CartTotalAside";
 import ButtonCVA from "./ButtonCva";
+import { usePathname } from "next/navigation";
+import { DataContext } from "../context/DataContext";
+import Link from "next/link";
 const SuccessPage = () => {
+  const { setIsSuccessPage, clearCart } = useContext(DataContext);
+
+  const pathname = usePathname();
+
+  if (pathname === "/success") {
+    setIsSuccessPage(true);
+  }
+
   return (
     <div className="flex flex-col p-10 gap-6 items-center">
       <div className="h-16"></div>
@@ -25,14 +36,17 @@ const SuccessPage = () => {
         <SuccessProducts />
         <CartTotalAside />
       </div>
-      <ButtonCVA
-        intent={"greenButton"}
-        size={"medium"}
-        textColor={"green"}
-        linkPath={"/shop"}
-      >
-        Volver a la tienda
-      </ButtonCVA>
+      <Link href={"/shop"}>
+        <ButtonCVA
+          intent={"greenButton"}
+          size={"medium"}
+          textColor={"green"}
+          typeFunction={() => clearCart()}
+          isFunction={true}
+        >
+          Volver a la tienda
+        </ButtonCVA>
+      </Link>
     </div>
   );
 };

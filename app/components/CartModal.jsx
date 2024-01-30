@@ -21,30 +21,46 @@ const CartModal = ({ cartInfo, clearButton, modalState, setModalState }) => {
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="flex flex-col z-10 gap-2 overflow-auto scrollbar-hide items-center  p-4 absolute w-96 h-96 justify-center rounded-md backdrop-blur-sm bg-[#2B2A2B]/50 right-5 top-5 min-h-60"
+        className="flex flex-col z-10 gap-2 overflow-auto scrollbar-hide items-center  p-4 absolute w-[400px] h-96 justify-center rounded-md backdrop-blur-sm bg-[#2B2A2B]/50 right-5 top-5 min-h-60"
       >
-        <h2 className="">Carrito 🛒</h2>
         {cartInfo.length === 0 ? (
-          <h2>vacio... </h2>
+          <div className="flex flex-col items-center gap-5">
+            <h2 className="">Carrito 🛒</h2>
+            <div className="flex flex-col gap-5 items-center">
+              <h2>vacio... </h2>
+              <p>agregue productos de la tienda</p>
+              <ButtonCVA intent={"greenButton"} linkPath={"/shop"}>
+                Comprar
+              </ButtonCVA>
+            </div>
+          </div>
         ) : (
-          <div className="flex flex-col gap-5 text-sm w-full">
-            <CartModalRow />
-            <div className="flex justify-between items-center">
-              {/* <button onClick={() => clearButton()}>Limpiar</button> */}
+          <div
+            className={
+              cartInfo.length >= 5
+                ? "pt-56 flex flex-col gap-4 items-center"
+                : "flex flex-col gap-4 items-center"
+            }
+          >
+            <h2 className="">Carrito 🛒</h2>
+            <div className="flex flex-col gap-5 text-sm w-full">
+              <CartModalRow />
+              <div className="flex justify-between items-center">
+                <ButtonCVA intent={"greenButton"} linkPath={"/cart"}>
+                  Cesta
+                </ButtonCVA>
+                <ButtonCVA
+                  typeFunction={() => clearButton()}
+                  isFunction={true}
+                  intent={"greyButton"}
+                >
+                  Limpiar
+                </ButtonCVA>
 
-              <ButtonCVA
-                typeFunction={() => clearButton()}
-                isFunction={true}
-                intent={"greyButton"}
-              >
-                Limpiar
-              </ButtonCVA>
-
-              <ButtonCVA intent={"greenButton"} linkPath={"/cart"}>
-                Cesta
-              </ButtonCVA>
-
-              <p className="border rounded p-2">Total: {precioTotal} €</p>
+                <p className="border rounded p-2">
+                  Total: {precioTotal.toFixed(2)} €
+                </p>
+              </div>
             </div>
           </div>
         )}

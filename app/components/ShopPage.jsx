@@ -6,10 +6,11 @@ import Footer from "./Footer";
 import { DataContext } from "../context/DataContext";
 
 const ShopPage = () => {
-  const { setModalCartBool } = useContext(DataContext);
+  const { setModalCartBool, setIsSuccessPage } = useContext(DataContext);
 
   useEffect(() => {
     setModalCartBool(false);
+    setIsSuccessPage(false);
   }, []);
 
   return (

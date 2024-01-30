@@ -8,7 +8,6 @@ const CartDeliverySelection = () => {
 
   const handleCheck = () => {
     setIsChecked(!isChecked);
-    console.log(isChecked);
   };
 
   return (

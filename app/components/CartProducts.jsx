@@ -58,15 +58,17 @@ const CartProducts = () => {
                   />
                 </div>
 
-                <div class="flex flex-col w-[506px] gap-1">
-                  <p class="text-sm font-semibold leading-4">{product.brand}</p>
-                  <p class="text-sm font-normal leading-4">
+                <div className="flex flex-col w-[506px] gap-1">
+                  <p className="text-sm font-semibold leading-4">
+                    {product.brand}
+                  </p>
+                  <p className="text-sm font-normal leading-4">
                     Paquete de café, 250 gr
                   </p>
                 </div>
 
                 <div className="flex gap-3">
-                  <h3 class="text-lg font-semibold leading-6 ">
+                  <h3 className="text-lg font-semibold leading-6 ">
                     {product.price * product.quantity},00 €
                   </h3>
                 </div>

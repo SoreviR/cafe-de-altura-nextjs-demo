@@ -1,6 +1,5 @@
 import React from "react";
 import heroImgSrc from "../../public/images/Hero image.png";
-import Button from "./Button";
 import Image from "next/image";
 import ButtonCVA from "./ButtonCva";
 

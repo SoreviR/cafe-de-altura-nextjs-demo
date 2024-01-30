@@ -9,6 +9,7 @@ export default function DataContextProvider({ children }) {
   const [loading, setLoading] = useState(true);
   const [modalCartBool, setModalCartBool] = useState(false);
   const [isChecked, setIsChecked] = useState(true);
+  const [isSuccessPage, setIsSuccessPage] = useState(false);
 
   useEffect(() => {
     setLoading(true);
@@ -21,6 +22,7 @@ export default function DataContextProvider({ children }) {
         console.log(error);
       });
     setLoading(false);
+    setIsSuccessPage(false);
   }, []);
 
   const addProduct = (product) => {
@@ -35,14 +37,12 @@ export default function DataContextProvider({ children }) {
       action: "remove_product",
       product: product,
     });
-    console.log("Se apreto el boton Remove");
   };
 
   const clearCart = () => {
     dispatch({
       action: "clear_cart",
     });
-    console.log("Se apreto el boton Clear");
   };
 
   const [cartState, dispatch] = useReducer(cartReducer, []);
@@ -66,6 +66,8 @@ export default function DataContextProvider({ children }) {
         isChecked,
         setIsChecked,
         bagTotalProducts,
+        isSuccessPage,
+        setIsSuccessPage,
       }}
     >
       {children}
