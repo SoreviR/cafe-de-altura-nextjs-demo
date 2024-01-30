@@ -1,10 +1,10 @@
 import Image from "next/image";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { DataContext } from "../context/DataContext";
 
 const SuccessProducts = () => {
   const { cartState, clearCart } = useContext(DataContext);
-  const [successData, setSuccessData] = useState(null);
+  // const [successData, setSuccessData] = useState(null);
 
   return (
     <div className="flex flex-col gap-6 p-6">

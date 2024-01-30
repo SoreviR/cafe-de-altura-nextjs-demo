@@ -10,11 +10,11 @@ import Link from "next/link";
 const SuccessPage = () => {
   const { setIsSuccessPage, clearCart } = useContext(DataContext);
 
-  const pathname = usePathname();
+  // const pathname = usePathname();
 
-  if (pathname === "/success") {
-    setIsSuccessPage(true);
-  }
+  // if (pathname === "/success") {
+  //   setIsSuccessPage(true);
+  // }
 
   return (
     <div className="flex flex-col p-10 gap-6 items-center">
