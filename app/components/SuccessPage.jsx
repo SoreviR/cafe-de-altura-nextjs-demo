@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import clipboardIcon from "../../public/icons/Clipboard check.svg";
 import ConditionIcon from "./ConditionIcon";
 import SuccessProducts from "./SuccessProducts";
@@ -11,10 +11,11 @@ const SuccessPage = () => {
   const { setIsSuccessPage, clearCart } = useContext(DataContext);
 
   const pathname = usePathname();
-
-  if (pathname === "/success") {
-    setIsSuccessPage(true);
-  }
+  useEffect(() => {
+    if (pathname === "/success") {
+      setIsSuccessPage(true);
+    }
+  }, [pathname, setIsSuccessPage]);
 
   return (
     <div className="flex flex-col p-10 gap-6 items-center">
