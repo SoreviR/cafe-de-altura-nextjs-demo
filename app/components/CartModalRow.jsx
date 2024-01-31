@@ -2,6 +2,8 @@ import Image from "next/image";
 import { useContext } from "react";
 import { DataContext } from "../context/DataContext";
 import ButtonCVA from "./ButtonCva";
+import { Plus } from "lucide-react";
+import { Minus } from "lucide-react";
 
 const CartModalRow = () => {
   const { addProduct, removeProduct, cartState } = useContext(DataContext);
@@ -15,13 +17,13 @@ const CartModalRow = () => {
               <div className="flex justify-between items-center gap-2">
                 <ButtonCVA
                   intent={"cartBagButton"}
-                  size={"superSmall"}
+                  size={"noSize"}
                   roundness={"pill"}
                   isFunction={true}
                   typeFunction={() => removeProduct(product)}
                   functionParam={product}
                 >
-                  -
+                  <Minus size={20} />
                 </ButtonCVA>
 
                 <Image
@@ -32,13 +34,13 @@ const CartModalRow = () => {
                 />
                 <ButtonCVA
                   intent={"cartBagButton"}
-                  size={"superSmall"}
+                  size={"noSize"}
                   roundness={"pill"}
                   isFunction={true}
                   typeFunction={() => addProduct(product)}
                   functionParam={product}
                 >
-                  +
+                  <Plus size={20} />
                 </ButtonCVA>
               </div>
 

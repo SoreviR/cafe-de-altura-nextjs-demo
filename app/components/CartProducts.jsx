@@ -5,6 +5,8 @@ import { DataContext } from "../context/DataContext";
 import MinusIcon from "../../public/icons/minus-symbol.svg";
 import PlusIcon from "../../public//icons/plus-symbol.svg";
 import Divider from "../../public/images/Divider.jpg";
+import { Plus } from "lucide-react";
+import { Minus } from "lucide-react";
 
 const CartProducts = () => {
   const { cartState, addProduct, removeProduct } = useContext(DataContext);
@@ -19,20 +21,15 @@ const CartProducts = () => {
                 <div className="flex justify-between items-center gap-2">
                   <ButtonCVA
                     intent={"cartButton"}
-                    size={"superSmall"}
+                    size={"noSize"}
                     roundness={"pill"}
                     isFunction={true}
                     typeFunction={() => removeProduct(product)}
                     functionParam={product}
                   >
-                    <Image
-                      src={MinusIcon}
-                      width={20}
-                      height={20}
-                      alt="minus icon"
-                    />
+                    <Minus size={20} className="pt-1" />
                   </ButtonCVA>
-                  <p className="text-xs text-Green-color font-normal leading-4 px-2 py-1 bg-[#eaefec] rounded-full">
+                  <p className="text-xs text-[#2A5B45] font-normal leading-4 px-2 py-1 bg-[#eaefec] rounded-full">
                     {product.quantity}
                   </p>
                   <ButtonCVA
@@ -43,12 +40,7 @@ const CartProducts = () => {
                     typeFunction={() => addProduct(product)}
                     functionParam={product}
                   >
-                    <Image
-                      src={PlusIcon}
-                      width={20}
-                      height={20}
-                      alt="minus icon"
-                    />
+                    <Plus size={20} />
                   </ButtonCVA>
                   <Image
                     src={product.img_url}

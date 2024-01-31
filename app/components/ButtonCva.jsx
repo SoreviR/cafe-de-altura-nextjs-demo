@@ -25,6 +25,7 @@ const ButtonCva = cva(
         small: "p-2",
         medium: "px-6 py-3",
         large: ["text-lg", "py-4", "px-8"],
+        noSize: "",
       },
 
       /* button roundness */

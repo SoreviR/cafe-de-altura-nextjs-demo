@@ -1,6 +1,5 @@
 "use client";
 import cartReducer from "@/utils/CartReducer";
-
 import React, { createContext, useEffect, useReducer, useState } from "react";
 
 export const DataContext = createContext([]);
@@ -11,6 +10,19 @@ export default function DataContextProvider({ children }) {
   const [modalCartBool, setModalCartBool] = useState(false);
   const [isChecked, setIsChecked] = useState(true);
   const [isSuccessPage, setIsSuccessPage] = useState(false);
+  const [cartLocalStorage, setCartLocalStorage] = useState([]);
+
+  const [cartState, dispatch] = useReducer(cartReducer, []);
+
+  useEffect(() => {
+    let carritoLS = JSON.parse(localStorage.getItem("cartData")) ?? [];
+
+    setCartLocalStorage(carritoLS);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("cartData", JSON.stringify(cartState));
+  }, [cartState]);
 
   useEffect(() => {
     setLoading(true);
@@ -45,8 +57,6 @@ export default function DataContextProvider({ children }) {
       action: "clear_cart",
     });
   };
-
-  const [cartState, dispatch] = useReducer(cartReducer, []);
 
   const bagTotalProducts = cartState.reduce((acc, curr) => {
     return acc + curr.quantity;

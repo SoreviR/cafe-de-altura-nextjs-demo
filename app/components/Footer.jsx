@@ -4,6 +4,7 @@ import FooterButton from "./FooterButton";
 import phoneIcon from "../../public/icons/Phone.svg";
 import mailIcon from "../../public/icons/Mail-white.svg";
 import FooterLink from "./FooterLink";
+import { Phone } from "lucide-react";
 
 const Footer = () => {
   const linksArray1 = [
