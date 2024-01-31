@@ -1,10 +1,7 @@
-import Image from "next/image";
 import React from "react";
 import CartProducts from "./CartProducts";
-import Divider from "../../public/images/Divider.jpg";
 import CartDeliverySelection from "./CartDeliverySelection";
 import CartTotalAside from "./CartTotalAside";
-import ButtonCVA from "./ButtonCva";
 
 const CartProductsSection = () => {
   return (

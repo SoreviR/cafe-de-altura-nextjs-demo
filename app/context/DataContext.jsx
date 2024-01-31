@@ -1,6 +1,7 @@
 "use client";
 import cartReducer from "@/utils/CartReducer";
 import React, { createContext, useEffect, useReducer, useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 
 export const DataContext = createContext([]);
 

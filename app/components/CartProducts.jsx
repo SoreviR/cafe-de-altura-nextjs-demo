@@ -2,8 +2,6 @@ import React, { useContext } from "react";
 import ButtonCVA from "./ButtonCva";
 import Image from "next/image";
 import { DataContext } from "../context/DataContext";
-import MinusIcon from "../../public/icons/minus-symbol.svg";
-import PlusIcon from "../../public//icons/plus-symbol.svg";
 import Divider from "../../public/images/Divider.jpg";
 import { Plus } from "lucide-react";
 import { Minus } from "lucide-react";

@@ -7,6 +7,7 @@ import ButtonCVA from "./ButtonCva";
 import { usePathname } from "next/navigation";
 import { DataContext } from "../context/DataContext";
 import Link from "next/link";
+
 const SuccessPage = () => {
   const { setIsSuccessPage, clearCart } = useContext(DataContext);
 

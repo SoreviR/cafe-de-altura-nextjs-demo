@@ -5,7 +5,6 @@ import Divider from "../../public/images/Divider.jpg";
 import BizumIcon from "../../public/images/bizum icon.png";
 import CheckoutDeliveryAddress from "./CheckoutDeliveryAddress";
 import CartTotalAside from "./CartTotalAside";
-import ButtonCVA from "./ButtonCva";
 
 const CheckoutPage = () => {
   const [isSelected, setIsSelected] = useState(0);
