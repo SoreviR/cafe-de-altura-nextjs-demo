@@ -14,6 +14,7 @@ const CartModal = ({ cartInfo, clearButton, modalState, setModalState }) => {
       return acc + curr.price * curr.quantity;
     }, 0);
   }
+
   return (
     <aside
       onClick={handleModal}

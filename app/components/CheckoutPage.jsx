@@ -8,7 +8,7 @@ import CartTotalAside from "./CartTotalAside";
 
 const CheckoutPage = () => {
   const [isSelected, setIsSelected] = useState(0);
-  const [isValidated, setIsValidated] = useState(false);
+  const [isValidated, setIsValidated] = useState(true);
 
   const handleValidation = () => {
     setIsValidated(!isValidated);

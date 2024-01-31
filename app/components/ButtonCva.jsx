@@ -1,7 +1,6 @@
 import React from "react";
 import { cva } from "class-variance-authority";
 import Link from "next/link";
-//class-variance-authority: library
 
 const ButtonCva = cva(
   /* button base style */
