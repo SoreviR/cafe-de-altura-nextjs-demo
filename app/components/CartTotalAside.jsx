@@ -13,7 +13,10 @@ const CartTotalAside = ({ isPage, validated }) => {
       return acc + curr.price * curr.quantity;
     }, 0);
   }
-  const totalTax = cartSubtotal * 0.21;
+
+  const subtotalPlusDelivery = cartSubtotal + (isChecked ? 0 : 9);
+
+  const totalTax = subtotalPlusDelivery * 0.21;
 
   const deliverySelected = isChecked ? "GRATIS" : "9.00 €";
 
@@ -51,7 +54,7 @@ const CartTotalAside = ({ isPage, validated }) => {
         <p className="text-sm font-semibold leading-4">TOTAL</p>
         <div className="flex flex-col gap-2">
           <p className="total-product-price text-sm font-semibold leading-4 self-end">
-            {(totalTax + cartSubtotal + (isChecked ? 0 : 9)).toFixed(2) + " €"}
+            {(totalTax + subtotalPlusDelivery).toFixed(2) + " €"}
           </p>
           <p className="text-xs font-normal leading-4">
             Incluye {totalTax.toFixed(2)}€ de IVA
